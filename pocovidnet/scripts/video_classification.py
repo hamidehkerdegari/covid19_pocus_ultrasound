@@ -1,5 +1,6 @@
 #This is a wip script
 #3D-CNN
+#Run config parameters : --videos ../../data/pocus_videos_new --output vid_class_output
 
 import argparse
 import os
@@ -98,7 +99,7 @@ def loaddata(video_dir, vid3d, nclass, result_dir, color=False, skip=True):
 def main():
     parser = argparse.ArgumentParser(
         description='simple 3D convolution for action recognition')
-    parser.add_argument('--batch', type=int, default=128)
+    parser.add_argument('--batch', type=int, default=8)
     parser.add_argument('--epoch', type=int, default=100)
     parser.add_argument('--videos', type=str, default='UCF101',
                         help='directory where videos are stored')
@@ -159,7 +160,7 @@ def main():
                to_file=os.path.join(args.output, 'model.png'))
 
     X_train, X_test, Y_train, Y_test = train_test_split(
-        X, Y, test_size=0.2, random_state=43)
+        X, Y, test_size=0.15, random_state=43)
 
     history = model.fit(X_train, Y_train, validation_data=(X_test, Y_test), batch_size=args.batch,
                         epochs=args.epoch, verbose=1, shuffle=True)
