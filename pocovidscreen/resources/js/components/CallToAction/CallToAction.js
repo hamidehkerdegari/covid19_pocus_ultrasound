@@ -4,6 +4,7 @@ const CallToAction = (props) => {
 
     return (
         <a className={`call-to-action py-5 px-4 d-block ${props.className}`} href={props.action}
+            onClick={() => {this.props.clickedCallback()}}
            title={props.linkTitle}>
             <h2>{props.title}</h2>
             <p>{props.text}</p>

@@ -16,6 +16,7 @@ const Train = lazy(() => import('./pages/Train/Train'));
 const Screen = lazy(() => import('./pages/Screen/Screen'));
 const SignIn = lazy(() => import('./pages/Auth/SignIn'));
 const SignUp = lazy(() => import('./pages/Auth/SignUp'));
+const Companies = lazy(() => import('./pages/Auth/SignUp/Companies'));
 const ForgotPassword = lazy(() => import('./pages/Auth/ForgotPassword'));
 const ScreenResults = lazy(() => import('./pages/Screen/ScreenResults'));
 const TrainResult = lazy(() => import('./pages/Train/TrainResult'));
@@ -85,6 +86,7 @@ const Frame = () => {
                         <Route exact path="/about" component={() => <About/>}/>
                         <Route exact path="/sign-in" component={() => <SignIn/>}/>
                         <Route exact path="/sign-up" component={() => <SignUp/>}/>
+                        <Route exact path="/sign-up/companies" component={() => <Companies/>}/>
                     </Suspense>
                     <Route render={() => <h2>404 Page Not Found</h2>}/>
                 </Switch>
